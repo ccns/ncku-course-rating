@@ -1,10 +1,6 @@
 var pg = require('pg');
 var conString = "postgres://postgres:ccnsccns@140.116.252.150/course-rating";
 
-var winston = require('winston');
-winston.remove(winston.transports.Console);
-winston.add(winston.transports.Console, {'timestamp':true});
-
 //this initializes a connection pool
 //it will keep idle connections open for a (configurable) 30 seconds
 //and set a limit of 20 (also configurable)
