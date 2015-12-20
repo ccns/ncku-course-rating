@@ -21,6 +21,7 @@
         <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
         <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
         <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
+        <script src="/javascripts/fbLogin.js" charset="utf-8"></script>
     </head>
     <body>
 		<div id="bg">
@@ -60,9 +61,8 @@
 				</div>
 				<div id="main">
 					<div id="sidebar">
-						<p>
-							這裡放登入按鈕，<br>已登入者顯示登入資訊
-						</p>
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+            <div id="status"></div>
 						<h3>
 							搜尋課程
 						</h3>
