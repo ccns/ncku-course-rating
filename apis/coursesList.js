@@ -27,3 +27,5 @@ function coursesList(dept, success) {
 	  });
   });
 }
+
+module.exports = coursesList;

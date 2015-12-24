@@ -4,21 +4,14 @@ var conString = "postgres://postgres:ccnsccns@140.116.252.150/course-rating";
 //this initializes a connection pool
 //it will keep idle connections open for a (configurable) 30 seconds
 //and set a limit of 20 (also configurable)
-// var options = {
-//   str: "陳",
-//   success: function (datas) {
-//     console.log(datas); // datas - succes: course datas object,
-//                         //         data not found: null
-//   }
-// };
 
-function fuzzySearch(options) {
-  var str = options.str;
+function fuzzySearch(keyword, success, error) {
+  var str = keyword;
 
   pg.connect(conString, function(err, client, done) {
     if(err) {
       console.error('error fetching client from pool', err);
-      return options.error('error fetching client from pool', err);
+      return error('error fetching client from pool', err);
     }
 
     // Get course datas
@@ -27,15 +20,17 @@ function fuzzySearch(options) {
       done();
       if(err) { // query errors
         console.error('error running query', err);
-        return options.error('error running query', err);
+        return error('error running query', err);
       }
 
       var datas = result.rows;
 
-      return options.success(datas);
+      return success(datas);
 
     });
 
     pg.end();
   });
 }
+
+module.exports = fuzzySearch;

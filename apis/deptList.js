@@ -1,9 +1,9 @@
 var pg = require('pg');
 var conString = "postgres://postgres:ccnsccns@140.116.252.150/course-rating";
 
-deptList(function (datas) {
-  console.log(datas);
-});
+// deptList(function (datas) {
+//   console.log(datas);
+// });
 
 function deptList(success) {
   pg.connect(conString, function(err, client, done) {
@@ -43,3 +43,5 @@ function deptList(success) {
     });
   });
 };
+
+module.exports = deptList;
