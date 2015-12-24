@@ -4,15 +4,13 @@ var conString = "postgres://postgres:ccnsccns@140.116.252.150/course-rating";
 //this initializes a connection pool
 //it will keep idle connections open for a (configurable) 30 seconds
 //and set a limit of 20 (also configurable)
-var options = {
-  str: "陳",
-  success: function (datas) {
-    console.log(datas); // datas - succes: course datas object,
-                        //         data not found: null
-  }
-};
-
-fuzzySearch(options);
+// var options = {
+//   str: "陳",
+//   success: function (datas) {
+//     console.log(datas); // datas - succes: course datas object,
+//                         //         data not found: null
+//   }
+// };
 
 function fuzzySearch(options) {
   var str = options.str;
